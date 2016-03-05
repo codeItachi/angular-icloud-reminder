@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="reminder">
+<head>
+	<meta charset="UTF-8">
+	<title>icloud</title>
+	<link rel="stylesheet" href="css/index.css">
+	<script src="./js/angular.js"></script>
+	<script src="./js/index.js"></script>
+	
+</head>
+<body ng-controller="rdctrl" ng-dbclick="clear()">
+	<div class="zuo">
+		<div class="title">
+			<span>icloud</span>
+			<span ng-click="addItem()" ng-dblclick="aa($event)">+</span>
+		</div>
+		<ul>
+			<li ng-repeat=" value in shijianliebiao track by $index" ng-click="setItem($index)" ng-class="{active:cindex==$index}">
+				<span ng-class="value.color"></span>
+				<input type="text" ng-model="value.name" ng-blur="save()">
+				
+			</li>
+		</ul>
+	</div>
+	<div class="you" ng-class="shijianliebiao[cindex].color">
+	    <input type="text" ng-model="key">
+	    <hr>
+	    <div ng-show='key'>
+	    	<h1>这是{{key}}的搜索结果</h1>
+	    	<dl ng-repeat="value in shijianliebiao | search:key">
+	    		<dt>{{value.name}}</dt>
+	    		<dd ng-repeat="r in value.items">{{r.title}}</dd>
+	    	</dl>
+	    </div>
+	    <div ng-hide='key'>
+	    	<button ng-click="delete()">清空列表</button>
+	    	<input type="text" ng-blur="save()" ng-model="shijianliebiao[cindex].name">
+	    	<span ng-repeat="value in colors" class="yuan" ng-class="value" ng-click="shijianliebiao[cindex].color=value"></span>
+	    	<h1>{{shijianliebiao[cindex].name}}</h1>
+
+	    	<div class="done-item">已完成:<span>{{countDone()}}</span>项</div>
+	    	<ul>
+	    		<li ng-repeat=" value in shijianliebiao[cindex].items track by $index" ng-show="value.isDone">
+	    			<span
+	    			ng-click="value.isDone=false;">{{value.isDone}}</span>
+
+	    			<input type="text" ng-blur="save()" ng-model="value.title">
+	    			<button ng-click="deleteTodo($index)">删除</button>
+	    		</li>
+	    	</ul>
+	    	<hr>
+	    	<ul>
+	    		<li ng-repeat=" value in shijianliebiao[cindex].items track by $index" ng-hide="value.isDone">
+	    			<span ng-click="value.isDone=true;save()">{{value.isDone}}</span>
+	    			<input type="text" ng-blur="save()" ng-model="value.title">
+	    			<button ng-click="deleteTodo($index)">删除</button>
+	    		</li>
+	    	</ul>
+
+	    	<div class="new-item" ng-click="addTodo()" style="font-size: 40px">+点击新增</div>
+	    </div>
+	    
+
+	</div>
+</body>
+</html>
