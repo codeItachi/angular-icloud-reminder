@@ -1,0 +1,86 @@
+body{
+	margin: 0;
+	font-family: '微软雅黑';
+}
+*{
+	cursor: default;
+}
+ul,li{
+	list-style: none;
+}
+.zuo{
+	width: 300px;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	background: #383836;
+	color: #fff;
+}
+.zuo .title{
+	padding: 20px;
+	color: #fff;
+	font-size: 40px;
+	border-bottom: 1px solid #000;
+}
+.zuo ul li{
+	padding: 20px;
+	font-size: 20px;
+	border-bottom: 1px solid #222;
+}
+.zuo li span:first-child{
+	display: inline-block;
+	padding: 8px;
+}
+div.you{
+	background: none; 
+}
+.you{
+	position: absolute;
+	top:0;
+	left: 300px;
+	bottom: 0;
+	right: 0;
+	background: #eee; 
+}
+.you li{
+	padding: 10px;
+}
+.blue{
+	background: blue;
+	color: blue;
+}
+.purple{
+	background: purple;
+	color: purple;
+}
+.pink{
+	background: pink;
+	color: pink;
+}
+.brown{
+	background: brown;
+	color: brown;
+}
+.orange{
+	background: orange;
+	color: orange;
+}
+.green{
+	background: green;
+	color: green;
+}
+.yellow{
+	background: yellow;
+	color: yellow;
+}
+.active{
+	background: #000;
+}
+.yuan{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-left: 10px;
+}
